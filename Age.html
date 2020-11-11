@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2.02</title>
+        <style>
+            td {
+                vertical-align: top;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>2.02 Age</h2>
+    <br>
+    <h3>Identifying and definitional attributes</h3>
+    <table>
+        <colgroup>
+            <col style="width: 250px;">
+            <col>
+        </colgroup>
+        <tr>
+            <td><b>Definition</b></td>
+            <td>The age of the patient on the date of the injury event, measured as a number of years. </td>
+        </tr>
+        <tr>
+            <td><b>Justification</b></td>
+            <td>Age is a core data field as a predictive measure of trauma treatment and outcomes.</td>
+        </tr>
+    </table>
+    <br>
+    <h3>Obligation</h3>
+    <p>Mandatory</p>
+    <br>
+    <h3>Representational attributes</h3>
+    <table>
+        <colgroup>
+            <col style="width: 250px;">
+            <col>
+        </colgroup>
+        <tr>
+            <td><b>Guide for use</b></td>
+            <td>Age in single years (if aged under one year, record as zero). <br>
+                Can be derived from: <br>
+                <ul>
+                    <li>3.01 Date of Birth; and</li> 
+                    <li>2.01 Date & Time of Injury</li>
+                </ul>
+                If both data fields are available, this should be derived as a calculated field. <br>
+                If age cannot be calculated, is not stated and cannot be estimated, value 999 should be used. 
+                </td>
+        </tr>
+        <tr>
+            <td><b>Validation rules</b></td>
+            <td>Permissible values 0 - 130</td>
+        </tr>
+        <tr>
+            <td><b>Related data field</b></td>
+            <td>
+                <b>
+                    2.01 Date of Birth <br>
+                    3.01 Date & Time of Injury 
+                </b>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Data type</b></td>
+            <td>Number</td>
+        </tr>
+        <tr>
+            <td><b>Representational class</b></td>
+            <td>Total</td>
+        </tr>
+        <tr>
+            <td><b>Field size maximum</b></td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><b>Format</b></td>
+            <td>N[NN]</td>
+        </tr>
+        <tr>
+            <td><b>Data domain</b></td>
+            <td>
+                <table>
+                    <tr>
+                        <td><b>Value</b></td>
+                        <td><b>Description</b></td>
+                    </tr>
+                    <tr>
+                        <td>0-130</td>
+                        <td>Valid Age</td>
+                    </tr>
+                    <tr>
+                        <td>999</td>
+                        <td>Unknown/not stated</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Column location</b></td>
+            <td>ATR#_site_time-period_INC.csv</td>
+        </tr>
+        <tr>
+            <td><b>Column name</b></td>
+            <td>Age</td>
+        </tr>
+        <tr>
+            <td><b>Correspondence</b></td>
+            <td>Single</td>
+        </tr>
+    </table>
+    <br>
+    <h3>Administrative information</h3>
+    <table>
+        <colgroup>
+            <col style="width: 250px;">
+            <col>
+        </colgroup>
+        <tr>
+            <td><b>References</b></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><b>Related metadata</b></td>
+            <td>METeOR ID: 303794</td>
+        </tr>
+    </table>
+    </body>
+</html>
+
+
+
