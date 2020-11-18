@@ -78,5 +78,1859 @@
                 "correspondence": "Single",
                 "references": "",
                 "relatedMetadata": "METeOR ID: 287007 "
+        },
+        {
+                "id": 202,
+                "title": "2.02 Age",
+                "definition": "The age of the patient on the date of the injury event, measured as a number of years.",
+                "justification": "Age is a core data field as a predictive measure of trauma treatment and outcomes.",
+                "obligation": "Mandatory",
+                "guideForUse": "Age in single years (if aged under one year, record as zero). Can be derived from: <br>3.01 Date of Birth; and <br>2.01 Date & Time of Injury <br>If both data fields are available, this should be derived as a calculated field. <br>If age cannot be calculated, is not stated and cannot be estimated, value 999 should be used.",
+                "validationRules": "Permissible values 0 - 130",
+                "relatedDataField": "2.01 Date of Birth<br>3.01 Date & Time of Injury",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N[NN]",
+                "dataDomain": [
+                        {
+                                "Value": "0-130",
+                                "Description": "Valid Age"
+                        },
+                        {
+                                "Value": "999",
+                                "Description": "Unknown/not stated"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "Age",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 303794 "
+        },
+        {
+                "id": 203,
+                "title": "2.03 Sex",
+                "definition": "The biological distinction between male and female.",
+                "justification": "Collected to determine sex specific treatment. It is also a core field in a wide range of social, labour and demographic statistics.",
+                "obligation": "Mandatory",
+                "guideForUse": "Diagnosis and procedure codes should be checked against the national ICD10-AM sex edits, unless the person is undergoing, or has undergone a sex change or has a genetic condition resulting in a conflict between sex and ICD-10-AM code. <br>Intersex or indeterminate, refers to a person, who because of a genetic condition, was born with reproductive organs or sex chromosomes that are not exclusively male or female or whose sex has not yet been determined for whatever reason. <br>Intersex or indeterminate, should be confirmed if reported for people aged 90 days or greater.",
+                "validationRules": "Cannot be blank",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "1",
+                "format": "N",
+                "dataDomain": [
+                        {
+                                "Code": "1",
+                                "Description": "Male"
+                        },
+                        {
+                                "Code": "2",
+                                "Description": "Female"
+                        },
+                        {
+                                "Code": "3",
+                                "Description": "Intersex or indeterminate"
+                        },
+                        {
+                                "Code": "9",
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "Sex",
+                "correspondence": "Single",
+                "references": "International Statistical Classification of Diseases and Related Health Problems, Tenth Revision, Australian Modification 9th edition.",
+                "relatedMetadata": "METeOR ID: 287316 "
+        },
+        {
+                "id": 204,
+                "title": "2.04  Pre-injury Co-morbidities",
+                "definition": "Significant condition, conditions or complaint which pre-existed the injury incident, and which affect management of the injuries.",
+                "justification": "Co-morbidities may affect patient treatment and outcome.",
+                "obligation": "Optional",
+                "guideForUse": "Record all diagnosis codes existing prior to the episode of care for the injury incident, in accordance with the ICD-10-AM Australian Coding Standards.  <br>The diagnosis can include a disease, condition, previous injury, poisoning, sign, symptom, abnormal finding, complaint, or other factor influencing health status. <br>ICD-10 AM Australian Coding Standards diagnosis codes can be used to map to specified co-morbidity groups such as the American Society of Anaesthesiologists’ scale.",
+                "validationRules": "",
+                "relatedDataField": "None",
+                "dataType": "Text",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "6",
+                "format": "ANN{.N[N]}",
+                "dataDomain": "Valid ICD10-AM code",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "Comorb",
+                "correspondence": "Multiple",
+                "references": "International Statistical Classification of Diseases and Related Health Problems, Tenth Revision, Australian Modification 9th edition.",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 301,
+                "title": "3.01 Date & Time of Injury",
+                "definition": "The date and time the person received the injuries requiring hospitalisation.",
+                "justification": "To identify the episode of injury by the date and time. Date is used to calculate the age at date of injury. Time is used to calculate the time to treatment and also report on the most common time of injury.",
+                "obligation": "Mandatory",
+                "guideForUse": "If time is not accurately known, the best estimate should be used. <br>Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001. <br>Where the date and time is unknown, enter as: <br>01011900T0000 <br>Where date in known but time is unknown, enter actual date: <br>DDMMYYYYT0000 <br>Where the time is known but date is unknown, enter actual time as: <br>01011900Thhmm",
+                "validationRules": "Must be less than or equal to:<br>4.02 Date & Time of Ambulance Arrival at Patient (if used); <br>4.05 Date & Time of Arrival at Referring Hospital (if used); <br>4.06 Date & Time of Departure from Referring Hospital (if used); and <br>5.01 Date & Time of Arrival at Definitive Care Hospital",
+                "relatedDataField": "2.02 Age",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "DOIJ",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 2.1 and Item 2.2 "
+        },
+        {
+                "id": 302,
+                "title": "3.02 Injury Cause",
+                "definition": "The single environmental event, circumstance or condition (external factor) which was the primary circumstance or cause of the trauma event.",
+                "justification": "Enables categorisation of injury cause and identify trends in defining and monitoring cause of injuries.",
+                "obligation": "Desirable",
+                "guideForUse": "This code must be used in conjunction with an injury or poisoning code and can be used with other disease codes. The external cause should be coded to the complete ICD-10-AM classification. <br>If two or more cause categories are judged to be equally important, select the one that comes first in the code list. <br>An external cause code should be sequenced following the related injury or poisoning code, or following the group of codes, if more than one injury or condition has resulted from this external cause. Provision should be made to record more than one external cause if appropriate.  <br>External cause codes must include a place of occurrence code.",
+                "validationRules": "Cannot be blank if Place of Injury Occurrence and Activity Engaged in When Injured is not blank.",
+                "relatedDataField": "3.03 Dominant Injury Type",
+                "dataType": "Text",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "6",
+                "format": "ANN{.N[N]}",
+                "dataDomain": "Valid ICD10-AM code",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "InjuryCause",
+                "correspondence": "Single",
+                "references": "International Statistical Classification of Diseases and Related Health Problems, Tenth Revision, Australian Modification 9th edition",
+                "relatedMetadata": "METeOR ID:589014 "
+        },
+        {
+                "id": 303,
+                "title": "3.03 Dominant Injury Type",
+                "definition": "The dominant type of injury produced by the trauma event.",
+                "justification": "Collected to determine trends and calculation of TRISS (blunt and penetrating only).",
+                "obligation": "Desirable",
+                "guideForUse": "In most instances, determination of the dominant injury type will be based on the mechanism of injury, and relate directly to: <br>3.02 Injury Cause <br>Blunt injuries generally occur from mechanisms such as motor vehicle collisions, pedestrian impacts, falls and sports injuries. <br>Penetrating injuries, require skin penetration by an external force as the principal component of injury. Examples include stab and gunshot wounds, glass-related injuries and impalements. Examples include stab and gunshot wounds, bomb fragments, glass-related injuries and impalements. This excludes compound fractures where the bone breaks the skin, but includes compound fractures where an external object travels through the skin and into the bone. <br>Burn injuries are caused by exposure to electrical, thermal or corrosive agents such as flames, hot substances, chemicals or radiation. Examples include situations where electricity has primarily damaged soft tissues (electrical burns). <br>Other trauma includes hangings, near drowning and electrocution injuries. Examples include cases where electricity has resulted in more diffuse injuries involving other body systems (ie. electrocution) such as cardiac arrest, neurological injuries, fractures and compartment syndrome. <br>Not stated/inadequately described - type of injury cannot be determined. <br>In some cases, the dominant injury type will not be readily apparent. For example, a patient injured in a severe motor vehicle collision (which generally result in blunt injuries) may have additional penetrating injuries. When compared with blunt injuries sustained in such an injury event, such penetrating injuries may be minor (as in superficially embedded glass from a broken window) or major (as in impalement on an object within the vehicle). In such cases, the dominant injury type may be established by additional review of: <br>3.08 Injury event description; and <br>7.01 AIS Injury Codes <br>Where an injury event results in both blunt and non-blunt trauma of equal AIS severity, the non-blunt injury type should be used. Where an electrocution event causes burn and internal ('Other trauma') injuries, the injury with the higher AIS severity should be used.",
+                "validationRules": "Should not be blank.",
+                "relatedDataField": "3.02 Injury Cause<br>3.08 Injury event description<br>7.01 AIS Injury Codes",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "1",
+                "format": "N",
+                "dataDomain": [
+                        {
+                                "Code": "1",
+                                "Description": "Blunt"
+                        },
+                        {
+                                "Code": "2",
+                                "Description": "Penetrating"
+                        },
+                        {
+                                "Code": "3",
+                                "Description": "Burn"
+                        },
+                        {
+                                "Code": "8",
+                                "Description": "Other trauma"
+                        },
+                        {
+                                "Code": "9",
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "InjuryType",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 2.7"
+        },
+        {
+                "id": 304,
+                "title": "3.04 Postcode of Injury",
+                "definition": "The postcode where the trauma event occurred.",
+                "justification": "Used in the analysis of injury incident on a geographical basis. Where individual street addresses are available, postcodes can be mapped to more accurate Australian Standard Geographical Classification codes (ASGC) codes (e.g. SLAs).",
+                "obligation": "Desirable",
+                "guideForUse": "Leave Postcode - Australian blank for: <br>Any overseas address; <br>Unknown address; <br>No fixed address.",
+                "validationRules": "",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "4",
+                "format": "{NNNN}",
+                "dataDomain": "Valid postcode",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "InjuryPcode",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 429894 "
+        },
+        {
+                "id": 305,
+                "title": "3.05 Injury Intent",
+                "definition": "The most likely role of human intent in the occurrence of the trauma event as determined by a clinician's assessment.",
+                "justification": "Used for injury surveillance.",
+                "obligation": "Optional",
+                "guideForUse": "Select the code which best characterises the role of intent in the occurrence of the injury, on the basis of the information available at the time it is recorded. <br>If two or more categories are judged to be equally appropriate, select the one that comes first in the code list.",
+                "validationRules": "Should not be blank",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "2",
+                "format": "N[N]",
+                "dataDomain": [
+                        {
+                                "Value": "1",
+                                "Meaning": "Accidental or unintentional - injury not intended"
+                        },
+                        {
+                                "Value": "2",
+                                "Meaning": "Intentional self-harm"
+                        },
+                        {
+                                "Value": "3",
+                                "Meaning": "Sexual assault"
+                        },
+                        {
+                                "Value": "4",
+                                "Meaning": "Maltreatment by parent (including neglect)"
+                        },
+                        {
+                                "Value": "5",
+                                "Meaning": "Maltreatment by spouse or partner (including domestic violence)"
+                        },
+                        {
+                                "Value": "6",
+                                "Meaning": "Other and unspecified assault"
+                        },
+                        {
+                                "Value": "7",
+                                "Meaning": "Event of undetermined intent"
+                        },
+                        {
+                                "Value": "8",
+                                "Meaning": "Legal intervention (including police), operations of war or acts of terrorism"
+                        },
+                        {
+                                "Value": "9",
+                                "Meaning": "Adverse effect or complications of medical and surgical care"
+                        },
+                        {
+                                "Value": "10",
+                                "Meaning": "Other specified intent"
+                        },
+                        {
+                                "Value": "11",
+                                "Meaning": "Intent not specified"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "InjuryIntent",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 268944 "
+        },
+        {
+                "id": 306,
+                "title": "3.06 Place of Injury Occurrence",
+                "definition": "The type of location where the trauma event occurred.",
+                "justification": "To identify trends of injury and for injury prevention and control.",
+                "obligation": "Desirable",
+                "guideForUse": "This code must be used in conjunction with an injury or poisoning code and can be used with other disease codes. The external cause should be coded to the complete ICD-10-AM classification.If two or more cause categories are judged to be equally important, select the one that comes first in the code list.An external cause code should be sequenced following the related injury or poisoning code, or following the group of codes, if more than one injury or condition has resulted from this external cause. Provision should be made to record more than one external cause if appropriate.External cause codes must include a place of occurrence code.Existing numerical codesets used for similar fields may be mapped to this field.",
+                "validationRules": "Cannot be blank if Injury Cause and Activity Engaged in When Injured is not blank.",
+                "relatedDataField": "None",
+                "dataType": "Text",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "6",
+                "format": "{ANN[.N[N]}",
+                "dataDomain": "Valid ICD10-AM code",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "InjuryPlace",
+                "correspondence": "Single",
+                "references": "ICD-10-AM International Statistical Classification of Diseases and Related data field Health Problems, Australian Modification",
+                "relatedMetadata": "METeOR ID: 589028 "
+        },
+        {
+                "id": 307,
+                "title": "3.07 Activity Engaged in when Injured",
+                "definition": "The type of activity the person was engaged in at the time of the trauma event.",
+                "justification": "To identify trends of injury and for injury prevention and control. The basis for identifying work-related and sport-related injuries.",
+                "obligation": "Desirable",
+                "guideForUse": "This code must be used in conjunction with an injury or poisoning code and can be used with other disease codes. The external cause should be coded to the complete ICD-10-AM classification.<br>If two or more cause categories are judged to be equally important, select the one that comes first in the code list.<br>An external cause code should be sequenced following the related injury or poisoning code, or following the group of codes, if more than one injury or condition has resulted from this external cause. Provision should be made to record more than one external cause if appropriate.<br>External cause codes must include an activity code.<br>Existing numerical codesets used for similar fields may be mapped to this field.",
+                "validationRules": "Cannot be blank if Injury Cause and Place of Injury Occurrence is not blank.",
+                "relatedDataField": "None",
+                "dataType": "Text",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "6",
+                "format": "ANN{.N[N]}",
+                "dataDomain": "Valid ICD10-AM 9th Edition code",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ActEngaged",
+                "correspondence": "Single",
+                "references": "International Statistical Classification of Diseases and Related Health Problems, Tenth Revision, Australian Modification",
+                "relatedMetadata": "METeOR ID: 589002 "
+        },
+        {
+                "id": 308,
+                "title": "3.08 Injury Event Description",
+                "definition": "A textual description of the environmental event, circumstance or condition as the cause of injury.",
+                "justification": "The narrative of the injury event is very important as it identifies features of the event not revealed by coded data.",
+                "obligation": "Desirable",
+                "guideForUse": "Text description should include information relating to the circumstances prior to and surrounding the trauma event (including place of injury and activity), and what 'went wrong' to cause the trauma event.<br>Write a brief description of how the injury occurred. It should indicate:<br>What went wrong (the breakdown event)<br>The mechanism by which this event led to injury<br>The object(s) or substance(s) most important in the event<br>The type of place at which the event occurred<br>The activity of the person who was injured",
+                "validationRules": "",
+                "relatedDataField": "3.03 Dominant Injury Type",
+                "dataType": "Text",
+                "representationalClass": "Text",
+                "fieldSizeMaximum": "1000",
+                "format": "[X(1000)]",
+                "dataDomain": "",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "InjuryEvent",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 268946 "
+        },
+        {
+                "id": 309,
+                "title": "3.09 Safety Devices Used",
+                "definition": "The use (or lack of use) of safety equipment relevant to the injury cause.",
+                "justification": "To monitor the deployment and efficacy of safety devices, and to inform future safety initiatives.",
+                "obligation": "Optional",
+                "guideForUse": "Seatbelt include lap, shoulder and sash seatbelts.<br>Child car restraint examples include booster seat, child car seat, infant capsule.<br>Safety Protection examples include protective clothing (such as padded leather pants, industrial clothing), protective non-clothing (such as shin guard, knee or elbow pads) and eye protection (such as goggles, safety glasses).<br>Helmet examples include bicycle, skiing, motorcycle, rock climbing.<br>Code 10 – Not worn or used, if safety devices for codes 2- 7 available but not used or worn.<br>Code 11 – Not deployed, if code 8 available but has not deployed.",
+                "validationRules": "",
+                "relatedDataField": "None ",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "2 ",
+                "format": "N[N] ",
+                "dataDomain": [
+                        {
+                                "Code": 1,
+                                "Description": "No safety device"
+                        },
+                        {
+                                "Code": 2,
+                                "Description": "Seatbelt"
+                        },
+                        {
+                                "Code": 3,
+                                "Description": "Child car restraint"
+                        },
+                        {
+                                "Code": 4,
+                                "Description": "Safety protection"
+                        },
+                        {
+                                "Code": 5,
+                                "Description": "Helmet"
+                        },
+                        {
+                                "Code": 6,
+                                "Description": "Personal Floatation Device"
+                        },
+                        {
+                                "Code": 7,
+                                "Description": "Safety harness"
+                        },
+                        {
+                                "Code": 8,
+                                "Description": "Airbag deployed"
+                        },
+                        {
+                                "Code": 9,
+                                "Description": "Other"
+                        },
+                        {
+                                "Code": 10,
+                                "Description": "Not worn or used"
+                        },
+                        {
+                                "Code": 11,
+                                "Description": "Not deployed"
+                        },
+                        {
+                                "Code": 99,
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "SafetyDevice",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": "Ontario Trauma Registry Comprehensive Data Set Data Dictionary, May 2014.  Protective Devices.  p. 38  "
+        },
+        {
+                "id": 401,
+                "title": "4.01 Mode of Transport from Scene",
+                "definition": "The type of transport by which the person left the scene of the trauma event for transportation to hospital.",
+                "justification": "To monitor patterns and modes of transportation used.",
+                "obligation": "Mandatory",
+                "guideForUse": "Use of air ambulance services will take precedence in this field. For example, in the event that a patient requires road ambulance transport from the scene of an incident to a nearby helicopter, or from a helipad to a nearby hospital, the mode of transport is ‘Helicopter’, not ‘Road’.",
+                "validationRules": "",
+                "relatedDataField": "4.02 Date & Time of Ambulance Arrival at Patient",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "dataDomain": [
+                        {
+                                "Code": "1",
+                                "Description": "Road Ambulance"
+                        },
+                        {
+                                "Code": "2",
+                                "Description": "Helicopter Ambulance"
+                        },
+                        {
+                                "Code": "3",
+                                "Description": "Fixed-wing Ambulance"
+                        },
+                        {
+                                "Code": "4",
+                                "Description": "Private/Public Vehicle/Taxi/Walk-in"
+                        },
+                        {
+                                "Code": "5",
+                                "Description": "Interstate Ambulance"
+                        },
+                        {
+                                "Code": "6",
+                                "Description": "Private Ambulance"
+                        },
+                        {
+                                "Code": "7",
+                                "Description": "Police/Prison Vehicle"
+                        },
+                        {
+                                "Code": "8",
+                                "Description": " Other"
+                        },
+                        {
+                                "Code": "9",
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "TranspMode",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) "
+        },
+        {
+                "id": 402,
+                "title": "4.02 Date & Time of Ambulance Arrival at Patient",
+                "definition": "The date and time the first ambulance service reached the person at the scene of injury.",
+                "justification": "To monitor patterns of transfer and mode of transportation used.",
+                "obligation": "Optional",
+                "guideForUse": "If a person was transported by ambulance service from the scene, the date and time the first ambulance service reached the person.<br>Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted).<br>Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.<br>Where the date and time is unknown, enter as:<br>01011900T0000<br>Where date in known but time is unknown, enter actual date:<br>DDMMYYYYT0000<br>Where the time is known but date is unknown, enter actual time as:<br>01011900Thhmm",
+                "validationRules": "Must be greater than or equal to:<br>3.01 Date & Time of Injury Must be less than or equal to:<br>4.05 Date & Time of Arrival at Referring Hospital (if used);<br>4.06 Date & Time of Departure from Referring Hospital (if used); and<br>5.01 Date & Time of Arrival at Definitive Care Hospital",
+                "relatedDataField": "4.01 Mode of Transport from Scene",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "AmbulanceArrTime",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 3.9 "
+        },
+        {
+                "id": 403,
+                "title": "4.03 Transfer from Other Hospital?",
+                "definition": "Whether the person was treated at another acute-care hospital prior to arrival at the definitive care hospital.",
+                "justification": "To identify the treatment pathway and outcomes.",
+                "obligation": "Mandatory",
+                "guideForUse": "",
+                "validationRules": "",
+                "relatedDataField": "4.04 Referring Hospital<br>4.05 Date & Time of Arrival at Referring Hospit<br>4.06 Date & Time of Departure from Referring Hospit<br>4.07 Mode of Transport from Referring Hospital to Definitive Care Hospital",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "1",
+                "format": "N",
+                "dataDomain": [
+                        {
+                                "Code": 1,
+                                "Description": "Yes"
+                        },
+                        {
+                                "Code": 2,
+                                "Description": "No"
+                        },
+                        {
+                                "Code": 9,
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "OtherHospTransfer",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 404,
+                "title": "4.04 Referring Hospital",
+                "definition": "The identifier for the establishment from which the person was transferred.",
+                "justification": "To identify the referring health service provider for patient tracking.",
+                "obligation": "Desirable",
+                "guideForUse": "Concatenation of:<br>Australian state/territory identifier (character position 1)<br>Sector (character position 2)<br>Region identifier (character positions 3-4)<br>Organisation identifier (state/territory), (character positions 5-9)<br>If the person attended multiple hospitals prior to arriving at the hospital of definitive care, record the last transferring hospital.",
+                "validationRules": "Must be completed if the following collected:<br>4.03 Transfer from Other Hospital?   1 = Yes",
+                "relatedDataField": "4.03 Transfer from Other Hospital?",
+                "dataType": "Text",
+                "representationalClass": "Identifier",
+                "fieldSizeMaximum": "9",
+                "format": "NNX[X]NNNNN",
+                "dataDomain": "Valid identifier",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "RefHospId1",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 269973 "
+        },
+        {
+                "id": 405,
+                "title": "4.05 Date & Time of Arrival at Referring Hospital",
+                "definition": "The date and time patient was first registered, triaged or assessed (whichever comes first), by clerical officer, nurse or doctor at the hospital from which they were transferred to the definitive care hospital.",
+                "justification": "Enables calculation of transfer time from referring hospital to definitive care hospital.",
+                "obligation": "Desirable",
+                "guideForUse": "Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.<br>Where the date and time is unknown, enter as:<br>01011900T0000<br>Where date in known but time is unknown, enter actual date:<br>DDMMYYYYT0000<br>Where the time is known but date is unknown, enter actual time as:<br>01011900Thhmm<br>If not collected, can be concatenated if the following data is collected at the referring hospital:<br>Health service event - presentation date (METeOR ID: 270393)<br>Health service event - presentation time (METeOR ID: 270080)",
+                "validationRules": "Must be completed if the following collected:<br>4.03 Transfer from Other Hospital?  1 = Yes<br>Must be greater than or equal to:<br>3.01 Date & Time of Injury; and<br>4.02 Time of Ambulance Arrival at Patient (if used) Must be less than or equal to:<br>4.06 Time of Departure from Referring Hospital (if used); and<br>5.01 Date & Time of Arrival at Definitive Care Hospital",
+                "relatedDataField": "4.03 Transfer from Other Hospital?",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "RefHospArrDateTime1",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 270393<br>METeOR ID: 270080"
+        },
+        {
+                "id": 406,
+                "title": "4.06 Date & Time of Departure from Referring Hospital",
+                "definition": "The date and time patient departed from the hospital from which they were transferred to the definitive care hospital.",
+                "justification": "Enables length of stay at referring hospital to be calculated.",
+                "obligation": "Desirable",
+                "guideForUse": "Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.<br>Where the date and time is unknown, enter as:<br>01011900T0000<br>Where date is known but time is unknown, enter actual date:<br>DDMMYYYYT0000<br>Where the time is known but date is unknown, enter actual time as:<br>01011900Thhmm<br>If the patient is transferred by ambulance service, the time the patient is loaded into the transferring ambulance may be used.",
+                "validationRules": "Must be completed if the following collected:<br>4.03 Transfer from Other Hospital?  1 = Yes<br>Must be greater than or equal to:<br>3.01 Date & Time of Injury;<br>4.02  Date & Time of Ambulance Arrival at Patient (if used); and<br>4.05 Date &Time of Arrival at Referring Hospital (if used) Must be less than or equal to:<br>5.01 Date & Time of Arrival at Definitive Care Hospital",
+                "relatedDataField": "4.03 Transfer from Other Hospital?",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "RefHospDeptDateTime1",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 270025<br>METeOR ID: 270026<br>METeOR ID: 621829<br>METeOR ID: 621816"
+        },
+        {
+                "id": 407,
+                "title": "4.07 Mode of Transport from Referring Hospital to Definitive Care Hospital",
+                "definition": "The type of transport by which the person was transferred from another hospital to the definitive care hospital.",
+                "justification": "To monitor patterns of transfer and modes of transportation used.",
+                "obligation": "Desirable",
+                "guideForUse": "Use of air ambulance services will take precedence in this field. For example, in the event that a patient is flown by the Royal Flying Doctor Service from Mt Isa to Townsville, lands at the airstrip in Townsville, is then loaded into an ambulance and taken to The Townsville Hospital, the mode of transport is ‘Fixed Wing’, not ‘Road’.  This applies to most fixed wing transfers, where transport to the hospital will be by road car from the airport, and some helicopter transfers where a road ambulance may (for example) transport a patient from a hospital to a nearby helipad.",
+                "validationRules": "Must be completed if the following collected: • 4.03 Transfer from Other Hospital?  1 = Yes",
+                "relatedDataField": "4.03 Transfer from Other Hospital?",
+                "dataType": "Number ",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "dataDomain": [
+                        {
+                                "Code": "1",
+                                "Description": "Road Ambulance"
+                        },
+                        {
+                                "Code": "2",
+                                "Description": "Helicopter Ambulance"
+                        },
+                        {
+                                "Code": "3",
+                                "Description": "Fixed-wing Ambulance"
+                        },
+                        {
+                                "Code": "4",
+                                "Description": "Private/Public Vehicle/Taxi/Walk-in"
+                        },
+                        {
+                                "Code": "5",
+                                "Description": "Interstate Ambulance"
+                        },
+                        {
+                                "Code": "6",
+                                "Description": "Private Ambulance"
+                        },
+                        {
+                                "Code": "7",
+                                "Description": "Police/Prison Vehicle"
+                        },
+                        {
+                                "Code": "8",
+                                "Description": " Other"
+                        },
+                        {
+                                "Code": "9",
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "RefHospTranspMode1",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 3.5  "
+        },
+        {
+                "id": 408,
+                "title": "4.08 Pre-hospital Blood Transfusion?",
+                "definition": "Whether the person was administered any blood products prior to arrival at the definitive care hospital.",
+                "justification": "Administration of blood is an indication of the hypovolaemic status of a patient and may be used in the evaluation of quality of care.",
+                "obligation": "Optional",
+                "guideForUse": "",
+                "validationRules": "",
+                "relatedDataField": "None ",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "dataDomain": [
+                        {
+                                "Code": 1,
+                                "Description": "Yes"
+                        },
+                        {
+                                "Code": 2,
+                                "Description": "No"
+                        },
+                        {
+                                "Code": 9,
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "PreHospBloodTransf",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 409,
+                "title": "4.09 Pre-hospital CPR?",
+                "definition": "Whether the person received cardiopulmonary resuscitation at any stage prior to arrival at the definitive care hospital.",
+                "justification": "CPR is an indicator of cardiac arrest. Cardiac arrest is a predictor of adverse outcome and survival.",
+                "obligation": "Desirable",
+                "guideForUse": "Refer to ambulance, emergency services, first responders or transferring hospital clinical notes for evidence of whether or not CPR was administered.",
+                "validationRules": "Should not be blank if Pre-hospital Cardiac Arrest is not blank.",
+                "relatedDataField": "4.10 Pre-Hospital Cardiac Arrest?",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "1",
+                "format": "N",
+                "dataDomain": [
+                        {
+                                "Code": 1,
+                                "Description": "Yes"
+                        },
+                        {
+                                "Code": 2,
+                                "Description": "No"
+                        },
+                        {
+                                "Code": 9,
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "PreHospCPR",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 410,
+                "title": "4.10 Pre-hospital Cardiac Arrest?",
+                "definition": "Whether the person suffered a cardiac arrest at any stage prior to arrival at the definitive care hospital.",
+                "justification": "Cardiac arrest is a predictor of adverse outcome and survival.",
+                "obligation": "Desirable",
+                "guideForUse": "Cardiac arrest requires the absence of a detectable pulse, unresponsiveness and apnoea.",
+                "validationRules": "",
+                "relatedDataField": "4.09 Pre-Hospital CPR?",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "1",
+                "format": "N",
+                "dataDomain": [
+                        {
+                                "Code": 1,
+                                "Description": "Yes"
+                        },
+                        {
+                                "Code": 2,
+                                "Description": "No"
+                        },
+                        {
+                                "Code": 9,
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "PreHospCardArrest",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian Cardiac Outcomes Registry (VCOR) Data Definitions Percutaneous Coronary Intervention (PCI) V.1.4, Item 2.3.2. Out of Hospital Cardiac Arrest  "
+        },
+        {
+                "id": 411,
+                "title": "4.11 First Pulse",
+                "definition": "The first recorded heart rate measured at the scene of trauma, or (if unavailable or presented directly to referring hospital), the first recorded pulse measured at a referring hospital, before definitive care hospital, measured in beats per minute.",
+                "justification": "Used as a proxy to assess injury severity.",
+                "obligation": "Desirable",
+                "guideForUse": "First measurement taken by any of ambulance, retrieval team or other hospital prior to definitive care hospital.<br>Where the person’s first presentation is at a definitive care hospital, code 996 – Not applicable<br>If the person is in cardiac arrest at the time of first measurement, value 997 should be used.<br>If the person's heart rate cannot be measured, code 999 - Not stated/inadequately described.",
+                "validationRules": "Permissible values 0 - 300",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N[NN]",
+                "Unit of measure": "Heart beats per minute",
+                "dataDomain": [
+                        {
+                                "Value": "0-300",
+                                "Description": "Heart beats per minute"
+                        },
+                        {
+                                "Value": "996",
+                                "Description": "Not applicable"
+                        },
+                        {
+                                "Value": "997",
+                                "Description": "Cardiac arrest"
+                        },
+                        {
+                                "Value": "998",
+                                "Description": "Not recorded"
+                        },
+                        {
+                                "Value": "999",
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "FirstPulse",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeor ID: 285123 "
+        },
+        {
+                "id": 412,
+                "title": "4.12 First Systolic BP",
+                "definition": "The first recorded systolic blood pressure measured at the scene of trauma, or (if unavailable or presented directly to referring hospital), the first recorded systolic blood pressure measured at a referring hospital, before definitive care hospital.",
+                "justification": "Used in several scoring systems including TRISS and is one assessment of patient acuity.",
+                "obligation": "Desirable",
+                "guideForUse":First measurement taken by any of ambulance, retrieval team or other hospital prior to definitive care hospital.
+Must be in millimetres of mercury (mmHg).
+Where the person’s first presentation is at a definitive care hospital, code 996 – Not applicable.
+If the systolic blood pressure is not or cannot be measured, value 999 should be used.
+Measurement protocol for resting blood pressure: The systolic blood pressure is one component of a routine blood pressure measurement (i.e. systolic/diastolic) and reflects the maximum pressure to which the arteries are exposed.
+"validationRules": "Permissible values 0 - 300",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N[NN]",
+                "Unit of measure": Millimetre of mercury (mmHg)
+"dataDomain": Value Description
+0-300 Millimetre of mercury (mmHg)
+996 Not applicable
+999 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "FirstSystolic",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeor ID: 270073 "
+        },
+        {
+                "id": 413,
+                "title": "4.13 First Spontaneous Respiratory Rate",
+                "definition": "The first recorded unassisted rate of respiration measured at the scene of trauma, or (if unavailable or presented directly to referring hospital), the first recorded unassisted rate of respiration measured at a referring hospital, before definitive care hospital.",
+                "justification": "Used in several scoring systems including TRISS and is one assessment of patient acuity.",
+                "obligation": "Desirable",
+                "guideForUse":First measurement taken by any of ambulance, retrieval team or other hospital prior to definitive care hospital.
+Where the person’s first presentation is at a definitive care hospital, code 996 – Not applicable.
+If the person is in respiratory arrest at the time of first measurement, value 997 should be used.
+If the person has been intubated at the time of first measurement, value 998 should be used.
+If the respiratory rate is not or cannot be measured, value 999 should be used.
+"validationRules": "Permissible values 0 - 100",
+                "relatedDataField": "5.14 Respiratory Qualifier on Arrival",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N[NN]",
+                "Unit of measure": Number per minute
+"dataDomain": Value Description
+0-100 Number per minute
+996 Not applicable
+997 Respiratory arrest
+998 Intubated
+999 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "FirstRespiRate",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.16 "
+        },
+        {
+                "id": 414,
+                "title": "4.14 First Temperature",
+                "definition": "The first recorded body temperature measured at the scene of trauma, or (if unavailable or presented directly to referring hospital), the first recorded body temperature measured at a referring hospital, before definitive care hospital.",
+                "justification": "Useful in the measurement of a patient vital status. Very high and low temperatures can be an indication of organ decomposition for an injured patient. Hypothermia can present a significant management problem.",
+                "obligation": "Desirable",
+                "guideForUse":First measurement taken by any of ambulance, retrieval team or other hospital prior to definitive care hospital.
+Must be in degrees Celsius.
+Where the person’s first presentation is at a definitive care hospital, code 99.6 – Not applicable.
+If the temperature is not or cannot be measured, value 99.9 should be used.
+"validationRules": "Permissible value 20.0 – 50.0",
+                "relatedDataField": "None",
+                "dataType": "Decimals",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "4",
+                "format": "NN[.N]",
+                "Unit of measure": Celsius
+"dataDomain": Value Description
+20.0 – 50.0 Temperature in Celsius
+99.6 Not applicable
+99.9 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "FirstTemp",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) "
+        },
+        {
+Data Dictionary V. 4.0, Item 4.20 
+"title": "4.15 First GCS Eye",
+                "definition": "The first recorded Indication of the responsiveness to stimuli by eye opening at the scene of trauma, or (if unavailable or presented directly to referring hospital), the first recorded Indication of the responsiveness to stimuli by eye opening measured at a referring hospital, before definitive care hospital.",
+                "justification": "GCS components are combined and used as an important component in a number of outcome prediction models, and provide an indication of the patient's initial neurological status prior to arrival at definitive care.",
+Required for RTS and TRISS.
+
+"obligation": "Desirable",
+                "guideForUse":First measurement taken by any of ambulance, retrieval team or other hospital prior to definitive care hospital.
+Where the person’s first presentation is at a definitive care hospital, code 8 – Not applicable.
+"validationRules": "Permissible values 1 - 4",
+                "relatedDataField": "4.18 First Total GCS",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "Unit of measure": Valid code
+"dataDomain":  Code Description (Adult-Child-Infant)
+1 None-No Response-No Response
+2 Pain-Pain-Pain
+3 Voice-Verbal Stimuli-Verbal Stimuli
+4 Spontaneous-Spontaneous-Spontaneous
+8 Not applicable
+9 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "FirstGCSEye",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.22 "
+        },
+        {
+                "id": 416,
+                "title": "4.16 First GCS Voice",
+                "definition": "The first recorded Indication of the level of verbal response at the scene of trauma, or (if unavailable or presented directly to referring hospital), the first recorded Indication of the level of verbal response measured at a referring hospital, before definitive care hospital.",
+                "justification": "GCS components are combined and used as an important component in a number of outcome prediction models, and provide an indication of the patient's initial neurological status prior to arrival at definitive care.",
+Required for RTS and TRISS.
+
+"obligation": "Desirable",
+                "guideForUse":First measurement taken by any of ambulance, retrieval team or other hospital prior to definitive care hospital.
+Where the person’s first presentation is at a definitive care hospital, code 8 – Not applicable.
+"validationRules": "Permissible values 1 - 5",
+                "relatedDataField": "4.18 First Total GCS",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "Unit of measure": Valid code
+"dataDomain":  Code Description (Adult-Child-Infant)
+1 None-No Response-No Response
+2 Incomprehensible words- Incomprehensible words, cries- Moans to pain
+3 Inappropriate words- Inappropriate words- Cries to pain
+4 Confused- Confused –Irritable, cries
+5 Oriented- Oriented –Coos, babbles
+8 Not applicable
+9 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "FirstGCSVoice",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary v. 4.0, Item 4.23 "
+        },
+        {
+                "id": 417,
+                "title": "4.17 First GCS Motor",
+                "definition": "The first recorded Indication of the level of motor response at the scene of trauma, or (if unavailable or presented directly to referring hospital), the first recorded Indication of the level of motor response measured at a referring hospital, before definitive care hospital.",
+                "justification": "GCS components are combined and used as an important component in a number of outcome prediction models, and provide an indication of the patient's initial neurological status prior to arrival at definitive care. The",
+GCS motor component alone may be useful as an independent predictor of outcome. Required for RTS/TRISS.
+
+"obligation": "Desirable",
+                "guideForUse":First measurement taken by any of ambulance, retrieval team or other hospital prior to definitive care hospital.
+Where the person’s first presentation is at a definitive care hospital, code 8 – Not applicable.
+"validationRules": "Permissible values 1 - 6",
+                "relatedDataField": "4.18 First Total GCS",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "Unit of measure": Valid code
+"dataDomain":  Code Description (Adult-Child-Infant)
+1 None-No Response-No Response
+2 Extension to pain- Extension to pain- Decerebrate posturing to pain
+3 Flexion to pain- Flexion to pain- Decorticate posturing to pain
+4 Withdraws to pain- Withdraws to pain– Withdraws to pain
+5 Localises pain- Localises painful stimulus–Withdraws to touch
+6 Obeys commands- Obeys commands– Moves spontaneously
+8 Not applicable
+9 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "FirstGCSMotor",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.24 "
+        },
+        {
+                "id": 418,
+                "title": "4.18 First Total GCS",
+                "definition": "The first recorded total Glasgow Coma Scale score at the scene of trauma, or (if unavailable or presented directly to referring hospital), the first recorded total Glasgow Coma Scale score measured at a referring hospital, before definitive care hospital.",
+                "justification": "Used in several scoring systems including TRISS and required for the assessment of coma and impaired consciousness.",
+                "obligation": "Desirable",
+                "guideForUse":First measurement taken by any of ambulance, retrieval team or other hospital prior to definitive care hospital.
+If the person has been intubated at the time of first measurement, or is otherwise sedated or paralysed due to drug administration, value 96 should be used.
+Where the person’s first presentation is at a definitive care hospital, code 98 – Not applicable.
+If the total GCS is not or cannot be measured, value 99 should be used.
+"validationRules": "Permissible values 3 - 15.",
+                "relatedDataField": "4.15 First GCS Eye",
+                4.16 First GCS Voice
+4.17 First GCS Motor
+"dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "2",
+                "format": "N[N]",
+                "Unit of measure": "dataDomain":  Code Description
+3- 15 Total GCS
+96 Intubated / sedated or paralysed due to drugs
+98 Not applicable
+99 Invalid / cannot be measured
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "FirstTotalGCS",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.25 "
+        },
+        {
+                "id": 501,
+                "title": "5.01 Date & Time of Arrival at Definitive Care Hospital",
+                "definition": "The date and time patient was first registered, triaged or assessed",
+(whichever comes first), by clerical officer, nurse or doctor at the definitive care hospital.
+"justification": "Enables calculation of transfer time from referring hospital to definitive care hospital (if applicable), time spent in ED, time to CT scan and time to operations and procedures.  This field is also required for length of stay calculation.",
+                "obligation": "Mandatory",
+                "guideForUse":Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.
+Where the date and time is unknown, enter as:
+• 01011900T0000
+Where date in known but time is unknown, enter actual date:
+• DDMMYYYYT0000
+Where the time is known but date is unknown, enter actual time as:
+• 01011900Thhmm
+If not collected, can be concatenated if the following data is collected at the definitive care hospital:
+<br>Health service event - presentation date (METeOR ID: 270393)
+<br>Health service event - presentation time (METeOR ID: 270080)
+"validationRules": "Must be greater than or equal to:",
+<br>3.01 Date & Time of Injury;
+<br>4.02 Time of Ambulance Arrival at Patient (if used);
+<br>4.05 Time of Arrival at Referring Hospital (if used); and
+<br>4.06 Time of Departure from Referring Hospital (if used) Must be less than or equal to:
+<br>5.18 ED Discharge Date & Time; and
+<br>7.02 Date & Time of Discharge
+"relatedDataField": "7.06 Length of Stay",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalDateTime",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 270393 "
+        },
+        {
+METeOR ID: 270080
+
+"title": "5.02 Pulse on Arrival",
+                "definition": "The first recorded heart rate measured following arrival at the definitive care hospital.",
+                "justification": "Used as a proxy to assess injury severity.",
+                "obligation": "Mandatory",
+                "guideForUse":If the person is in cardiac arrest at the time of first measurement, value 997 should be used.
+If the person's heart rate cannot be measured, code 999 - Not stated/inadequately described.
+"validationRules": "Permissible values 0 - 300",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N[NN]",
+                "Unit of measure": Heart beats per minute
+"dataDomain": Value Description
+0-300 Heart beats per minute
+997 Cardiac arrest
+998 Not recorded
+999 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalPulse",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeor ID: 285123 "
+        },
+        {
+                "id": 503,
+                "title": "5.03 Systolic BP on Arrival",
+                "definition": "The first recorded systolic blood pressure measured following arrival at the definitive care hospital.",
+                "justification": "Used in several scoring systems including TRISS and is one assessment of patient acuity.",
+                "obligation": "Mandatory",
+                "guideForUse":Must be in millimetres of mercury (mmHg).
+If the systolic blood pressure is not or cannot be measured, value 999 should be used.
+Measurement protocol for resting blood pressure: The systolic blood pressure is one component of a routine blood pressure measurement (i.e. systolic/diastolic) and reflects the maximum pressure to which the arteries are exposed.
+"validationRules": "Permissible values 0 - 250",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N[NN]",
+                "Unit of measure": Millimetre of mercury (mmHg)
+"dataDomain": Value Description
+0-250 Millimetre of mercury (mmHg)
+999 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalSystolic",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeor ID: 270073 "
+        },
+        {
+                "id": 504,
+                "title": "5.04 Respiratory Rate on Arrival",
+                "definition": "The first recorded unassisted rate of respiration measured following arrival at the definitive care hospital.",
+                "justification": "Used in several scoring systems including TRISS and is one assessment of patient acuity.",
+                "obligation": "Mandatory",
+                "guideForUse":If the person is in respiratory arrest at the time of first measurement, value 997 should be used.
+If the person has been intubated at the time of first measurement, value 998 should be used.
+If the respiratory rate is not or cannot be measured, value 999 should be used.
+"validationRules": "Permissible values 0 - 100",
+                "relatedDataField": "5.14 Respiratory Qualifier on Arrival",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N[NN]",
+                "Unit of measure": Number per minute
+"dataDomain": Value Description
+0-100 Number per minute
+997 Respiratory arrest
+998 Intubated
+999 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalRespiRate",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.16"
+        },
+        {
+                "id": 505,
+                "title": "5.05 Temperature on Arrival",
+                "definition": "The first recorded body temperature measured following arrival at the definitive care hospital.",
+                "justification": "Useful in the measurement of a patient vital status. Very high and low temperatures can be an indication of organ decomposition for an injured patient. Hypothermia can present a significant management problem.",
+                "obligation": "Desirable",
+                "guideForUse":Must be in degrees Celsius.
+If the temperature is not or cannot be measured, value 99.9 should be used.
+"validationRules": "Permissible value 20.0 – 50.0",
+                "relatedDataField": "None",
+                "dataType": "Decimals",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "4",
+                "format": "NN[.N]",
+                "Unit of measure": Celsius
+"dataDomain": Value Description
+20.0 – 50.0 Temperature in Celsius
+99.9 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalTemp",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.20 "
+        },
+        {
+                "id": 506,
+                "title": "5.06 GCS Eye on Arrival",
+                "definition": "The first recorded Indication of the responsiveness to stimuli by eye opening following arrival at the definitive care hospital.",
+                "justification": "GCS components are combined and used as an important component in a number of outcome prediction models, and provide an indication of the patient's neurological status on arrival at the definitive care hospital. Required for RTS/TRISS.",
+                "obligation": "Mandatory",
+                "guideForUse": "validationRules": "Permissible values 1 - 4",
+                "relatedDataField": "5.09 Total GCS on Arrival",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "Unit of measure": Valid code
+"dataDomain":  Code Description (Adult-Child-Infant)
+1 None-No Response-No Response
+2 Pain-Pain-Pain
+3 Voice-Verbal Stimuli-Verbal Stimuli
+4 Spontaneous-Spontaneous-Spontaneous
+9 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalGCSEye",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.22. "
+        },
+        {
+                "id": 507,
+                "title": "5.07 GCS Voice on Arrival",
+                "definition": "The first recorded Indication of the level of verbal response following arrival at the definitive care hospital.",
+                "justification": "GCS components are combined and used as an important component in a number of outcome prediction models, and provide an indication of the patient's neurological status on arrival at the definitive care hospital. Required for RTS/TRISS.",
+                "obligation": "Mandatory",
+                "guideForUse": "validationRules": "Permissible values 1 - 5",
+                "relatedDataField": "5.09 Total GCS on Arrival",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "Unit of measure": Valid code
+"dataDomain":  Code Description (Adult-Child-Infant)
+1 None-No Response-No Response
+2 Incomprehensible words- Incomprehensible words, cries- Moans to pain
+3 Inappropriate words- Inappropriate words- Cries to pain
+4 Confused- Confused –Irritable, cries
+5 Oriented- Oriented –Coos, babbles
+9 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalGCSVoice",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.23  "
+        },
+        {
+                "id": 508,
+                "title": "5.08 GCS Motor on Arrival",
+                "definition": "The first recorded Indication of the level of motor response following arrival at the definitive care hospital.",
+                "justification": "GCS components are combined and used as an important component in a number of outcome prediction models, and provide an indication of the patient's neurological status on arrival at the definitive care hospital. The GCS motor component alone may be useful as an independent predictor of outcome. Required for RTS/TRISS.",
+                "obligation": "Mandatory",
+                "guideForUse": "validationRules": "Permissible values 1 - 6",
+                "relatedDataField": "5.09 Total GCS on Arrival",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "Unit of measure": Valid code
+"dataDomain":  Code Description (Adult-Child-Infant)
+1 None-No Response-No Response
+2 Extension to pain- Extension to pain- Decerebrate posturing to pain
+3 Flexion to pain- Flexion to pain- Decorticate posturing to pain
+4 Withdraws to pain- Withdraws to pain– Withdraws to pain
+5 Localises pain- Localises painful stimulus–Withdraws to touch
+6 Obeys commands- Obeys commands– Moves spontaneously
+9 Not stated/inadequately described
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalGCSMotor",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.24 "
+        },
+        {
+                "id": 509,
+                "title": "5.09 Total GCS on Arrival",
+                "definition": "The first recorded total Glasgow Coma Scale score following arrival at the definitive care hospital.",
+                "justification": "Used in several scoring systems including TRISS and required for the assessment of coma and impaired consciousness.",
+                "obligation": "Mandatory",
+                "guideForUse":If the person has been intubated at the time of first measurement, or is otherwise sedated or paralysed due to drug administration, value 98 should be used.
+If the total GCS is not or cannot be measured, value 99 should be used.
+"validationRules": "Permissible values 3 - 15.",
+                "relatedDataField": "5.06 GCS Eye on Arrival",
+                5.07 GCS Voice on Arrival
+5.08 GCS Motor on Arrival
+"dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "2",
+                "format": "N[N]",
+                "Unit of measure": "dataDomain":  Code Description
+3- 15 Total GCS
+98 Intubated / sedated or paralysed due to drugs
+99 Invalid / cannot be measured
+"columnLocation": "ATR#_site_time-period_INC.csv",
+                "columnName": "ArrivalTotalGCS",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring Group (VSTORM) Data Dictionary V. 4.0, Item 4.25 "
+        },
+        {
+                "id": 510,
+                "title": "5.10 CPR on arrival?",
+                "definition": "Whether the person received cardiopulmonary resuscitation at any stage within 24 hours of arrival at the definitive care hospital.",
+                "justification": "CPR is a determinant of Cardiac arrest. Cardiac arrest is a predictor of adverse outcome / survival.",
+                "obligation": "Desirable",
+                "guideForUse": "validationRules": "",
+                "relatedDataField": "None ",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "dataDomain":  Code Description
+1 Yes
+2 No
+9 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "ArrivalCPR",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 511,
+                "title": "5.11 Blood Transfusion on Arrival?",
+                "definition": "Whether the person was administered any blood products at any stage within 24 hours of arrival at the definitive care hospital.",
+                "justification": "Administration of blood is an indication of the hypovolaemic status of a patient and may be used in the evaluation of quality of care.",
+                "obligation": "Desirable",
+                "guideForUse": "validationRules": "",
+                "relatedDataField": "None ",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "dataDomain":  Code Description
+1 Yes
+2 No
+9 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "ArrivalBloodTransf",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 512,
+                "title": "5.12 Patient Intubated?",
+                "definition": "Whether the person was intubated at any stage of their care, whether prior to or at the definitive care hospital.",
+                "justification": "Identifies patients requiring definitive airway management and may be used in the evaluation of quality of care.",
+                "obligation": "Mandatory",
+                "guideForUse": "validationRules": "",
+                "relatedDataField": "5.14 Respiratory Qualifier on Arrival",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "1",
+                "format": "N",
+                "dataDomain":  Code Description
+1 Yes
+2 No
+9 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "ArrivalPatIntubated",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 513,
+                "title": "5.13 Date & Time Patient Intubated",
+                "definition": "The date and time patient was first intubated - at any stage of their care, whether prior to or at the definitive care hospital.",
+                "justification": "To calculate time to intubation.",
+                "obligation": "Desirable",
+                "guideForUse":Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.
+Where the date and time is unknown, enter as:
+• 01011900T0000
+Where date in known but time is unknown, enter actual date:
+• DDMMYYYYT0000
+Where the time is known but date is unknown, enter actual time as:
+• 01011900Thhmm
+"validationRules": "Must be completed if the following collected:",
+• 5.12 Patient intubated?
+Must be greater than or equal to:
+<br>3.01 Date & Time of Injury Must be less than or equal to:
+<br>7.02 Date & Time of Discharge from Definitive Care
+"relatedDataField": "5.14 Respiratory Qualifier on Arrival",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "ArrivalPatIntubatedDateTime",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 514,
+                "title": "5.14 Respiratory Qualifier on Arrival",
+                "definition": "Whether respiratory assistance was required at the time the respiratory rate was recorded on arrival at the definitive care hospital.",
+                "justification": "Provides documentation of assessment and care. Used in quality management for the evaluation of care.",
+                "obligation": "Mandatory",
+                "guideForUse": "validationRules": "Must be completed if any of the following collected:",
+<br>5.04 Respiratory Rate on Arrival;
+<br>5.12 Patient Intubated?; or
+<br>5.13 Date & Time Patient Intubated
+"relatedDataField": "s 5.04 Respiratory Rate on Arrival",
+                5.12 Patient Intubated?
+5.13 Date & Time Patient Intubated
+"representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "dataDomain":  Code Description
+1 Unassisted respiratory rate or no intervention – respiration rate is not assisted by any mechanical or assisted ventilation.
+2 Assisted respiratory rate – includes Mechanical Ventilation (patient is intubated and receiving mechanical ventilation by ventilator and Bag Mask Ventilation (BMV); patient is receiving assisted ventilation by bag/mask device eg. face mask, bag and mask, guedel or naso, laryngeal mask, endotracheal tube, prior ETT.
+8 Other
+9 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "ArrivalRespiQualifier",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring (VSTORM) Data Dictionary V. 4.0, Item 4.17 "
+        },
+        {
+                "id": 515,
+                "title": "5.15 Blood Alcohol Concentration on Arrival",
+                "definition": "The first blood alcohol concentration result recorded on arrival at the definitive care hospital.",
+                "justification": "Alcohol affects the Glasgow Coma Scale.",
+                "obligation": "Desirable",
+                "guideForUse":Must be in gm% - convert from ethanol mmol/L by dividing by 217.1.
+If alcohol is recorded in mg/dl, divide result by 1000.
+Must be taken within the first 24 hours following arrival at the definitive care hospital.
+If the blood alcohol concentration is not or cannot be measured, value 9 should be used.
+"validationRules": "Permissible values 0.000 –  1.000",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "5",
+                "format": "N.NNN",
+                "Unit of measure": gm%
+"dataDomain": Value Description
+0.000-1.000 Blood alcohol concentration (gm%)
+9.999 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "ArrivalBloodAlcoholCon",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 516,
+                "title": "5.16 First Measured Arterial Base Excess",
+                "definition": "The first recorded arterial base excess result following arrival at the definitive care hospital.",
+                "justification": "Clinical assessment of patient’s condition on arrival at definitive care hospital which may indicate the need for additional treatment. Identify complication of trauma.",
+                "obligation": "Desirable",
+                "guideForUse":Unit of measurement is mmol/L.
+Must be taken within the first 24 hours following arrival at the definitive care hospital.
+If more than one value has been measured within the first 24 hours after arrival at the definitive care hospital, report the first measured value, not the worst value.
+If the arterial base excess is not or cannot be measured, value 99 should be used.
+"validationRules": "Permissible values -3 - 3",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "2",
+                "format": "[A]N",
+                "Unit of measure": mmol/L
+"dataDomain": Value Description
+-3 - 3 Arterial base excess value (mmol/L)
+99 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "FirstBaseExcess",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 517,
+                "title": "5.17 First Measured INR",
+                "definition": "The first recorded prothrombin time INR result following arrival at the definitive care hospital.",
+                "justification": "Clinical assessment of patient’s condition on arrival at definitive care hospital which may indicate the need for additional treatment. Identify complication or comorbidity.",
+                "obligation": "Desirable",
+                "guideForUse":Unit of measurement is mmol/L.
+Must be taken within the first 24 hours following arrival at the definitive care hospital.
+ If the INR is not or cannot be measured, value 99.9 should be used.
+"validationRules": "Permissible values 0.0 – 10.0",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N.N",
+                "Unit of measure": mmol/L
+"dataDomain": Value Description
+0.0 – 10.0 INR value (mmol/L)
+99.9 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "FirstINR",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 518,
+                "title": "5.18 ED Discharge Date & Time",
+                "definition": "The date and time patient left the emergency department at the definitive care hospital, or (if dying in the emergency department) the time of death.",
+                "justification": "Calculation of total length of ED stay.",
+                "obligation": "Mandatory",
+                "guideForUse":Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.
+Where date and time is unknown, enter as:
+• 01011900T0000
+Where date in known but time is unknown, enter actual date:
+• DDMMYYYYT0000
+Where the time is known but date is unknown, enter actual time as:
+• 01011900Thhmm
+If a patient is a direct admission and goes directly to another area in the hospital on hospital arrival (such as ICU or OR), this should be the same as:
+• 5.01 Date & Time of Arrival at Definitive care Hospital
+If not collected, can be concatenated if the following data is collected at the definitive care hospital:
+<br>Emergency department stay - physical departure date (METeOR ID: 621816)
+<br>Emergency department stay - physical departure time (METeOR ID: 621829)
+"validationRules": "Must be greater than or equal to:",
+• 5.01 Date & Time of Arrival at Definitive Care Hospital
+Must be less than or equal to:
+• 7.02 Date & Time of Discharge from Definitive Care
+"relatedDataField": "5.19 Disposition after ED?",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "EDDischargeDateTime",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 621816 "
+        },
+        {
+METeOR ID: 621829
+"title": "5.19 Disposition After ED",
+                "definition": "The first location for which the patient departed on leaving the emergency department at the definitive care hospital.",
+                "justification": "To monitor the status and location of patients on departure from the ED.",
+                "obligation": "Desirable",
+                "guideForUse":If a patient is a direct admission and goes directly to another area in the hospital on hospital arrival (such as ICU or OR), code the unit or department where the patient was admitted to.
+"validationRules": "If a patient is a direct admission and goes directly to another area in the hospital on hospital arrival (such as ICU or OR), ED Discharge Date & Time should be the same as:",
+• 5.01 Date & Time of Arrival at Definitive Care Hospital
+"relatedDataField": "5.18 ED Discharge Date & Time",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N[N] ",
+                "dataDomain":  Code Description
+1 Ward
+2 Intensive Care Unit (ICU)
+3 High Dependency Unit (HDU)
+4 Operating Room (OR)
+5 OR to Ward
+6 OR to ICU
+7 OR to HDU
+8 OR then transfer to another hospital for acute care
+9 Transfer to another hospital for acute care
+10 Home
+11 Death
+12 Death in ED
+13 Other (eg. jail, institutional care, mental health, etc.)
+96 Not Applicable
+99 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "EDDisposition",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring (VSTORM) Data Dictionary V. 4.0, Item 4.33 "
+        },
+        {
+                "id": 601,
+                "title": "6.01 Diagnosis made >24 hours after arrival?",
+                "definition": "Whether any injury was diagnosed more than 24 hours after arrival at the definitive care hospital.",
+                "justification": "Represents the time required to initiate, report on and assess the results of key in-hospital diagnostic tests, and may be seen as a measure of the efficiency of the trauma system.",
+
+Obligation
+Optional
+"guideForUse":This field may be used as a global indicator of delayed diagnosis (of any injury) for a given patient.
+"validationRules": "",
+                "relatedDataField": "None ",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "1 ",
+                "format": "N ",
+                "dataDomain":  Code Description
+1 Yes
+2 No
+9 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_xxx.csv",
+                "columnName": "IsDiag24hr",
+Correspondance Multiple
+"references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 602,
+                "title": "6.02 Date & Time CT Performed",
+                "definition": "The date and time patient received a CT scan - at any stage of their care, whether prior to or at the definitive care hospital.",
+                "justification": "Represents the time required to initiate key diagnostic tests, and may be seen as a measure of the efficiency of the trauma system.",
+                "obligation": "Mandatory",
+                "guideForUse":Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.
+Where the date and time is unknown, enter as:
+• 01011900T0000
+Where date in known but time is unknown, enter actual date:
+• DDMMYYYYT0000
+Where the time is known but date is unknown, enter actual time as:
+• 01011900Thhmm
+May be limited to CT performed at the definitive care hospital.
+"validationRules": "Must be greater than or equal to:",
+• 3.01 Date & Time of Injury
+Must be less than or equal to:
+• 7.02 Date & Time of Discharge from Definitive Care
+"relatedDataField": "None",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR1_site_time-period_CT.csv",
+                "columnName": "CTDateTime",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 603,
+                "title": "6.03 CT type",
+                "definition": "The body region on which the specified CT scan was performed.",
+                "justification": "Diagnostic tool to evaluate the nature and extent of injuries and provides an indication for treatment.",
+                "obligation": "Mandatory",
+                "guideForUse":May be limited to CT performed at the definitive care hospital.
+"validationRules": "Cannot be blank ",
+                "relatedDataField": "None ",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "2 ",
+                "format": "N[N] ",
+                "dataDomain":  Code Description
+1 Brain
+2 Head/Face
+3 Orbits
+4 Neck
+5 Chest
+6 Spine - Cervical
+7 Spine - Thoracic
+8 Spine - Lumbar
+9 Limbs
+10 Abdomen
+11 Pelvis
+12 Angiogram
+13 Other
+99 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_CT.csv",
+                "columnName": "CTType",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": ""
+        },
+        {
+                "id": 604,
+                "title": "6.04 Operative Procedures in OR",
+                "definition": "Operative intervention undertaken - at any stage of their care, whether prior to or at the definitive care hospital.",
+                "justification": "Used to characterise procedures used to treat specific injury types to enable analysis of triage and treatment.",
+                "obligation": "Mandatory",
+                "guideForUse":Operative and/or essential procedures is defined as procedures performed in the Operating Room. Do not include procedures done in other departments such as ED, ICU, etc.
+Limited to interventions for severe or potentially severe injuries only.
+May be limited to interventions performed at the definitive care hospital.
+"validationRules": "Cannot be blank",
+                "relatedDataField": "None",
+                "dataType": "Text",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "8",
+                "format": "NNNNN-NN",
+                "dataDomain": Australian Classification of Health Interventions (ACHI) 9th edition
+"columnLocation": "ATR1_site_time-period_OPPROC.csv",
+                "columnName": "OperativeProc",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 391349  "
+        },
+        {
+                "id": 605,
+                "title": "6.05 Operation Date & Time",
+                "definition": "The date and time operative intervention was undertaken - at any stage of their care, whether prior to or at the definitive care hospital.",
+                "justification": "Allows time to operation to be calculated.",
+                "obligation": "Mandatory",
+                "guideForUse":Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.
+Where the date and time is unknown, enter as:
+• 01011900T0000
+Where date in known but time is unknown, enter actual date:
+• DDMMYYYYT0000
+Where the time is known but date is unknown, enter actual time as:
+• 01011900Thhmm
+Limited to interventions for severe or potentially severe injuries only.
+May be limited to interventions performed at the definitive care hospital.
+Start time is the time anaesthesia is administered.
+"validationRules": "Must be greater than or equal to:",
+• 3.01 Date & Time of Injury
+Must be less than or equal to:
+• 7.02 Date & Time of Discharge from Definitive Care
+"relatedDataField": "None",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR1_site_time-period_OPPROC.csv",
+                "columnName": "OperationDateTime",
+                "correspondence": "Multiple",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 270298  "
+        },
+        {
+                "id": 606,
+                "title": "6.06 Number of days on ventilator",
+                "definition": "The total number of days (whole or partial) on which mechanical ventilation was used.",
+                "justification": "Ventilation increases risk of complications, such as Ventilator Association Pneumonia, and may lead to potentially poorer outcomes.",
+                "obligation": "Desirable",
+                "guideForUse":Field allows for multiple “start” and “stop” dates and calculates total days spent (in part or in whole) on a mechanical ventilator (excluding during an Operating Room procedure).
+If mechanical ventilation was used at the definitive care hospital, value must be 1 or more.
+Exception is when the only mechanical ventilation used occurs during an Operating Room procedure.
+Mechanical ventilation does not include non-invasive methods of ventilatory support, such as CPAP or BiPAP.  Refer to Australian Coding Standard 1006 Ventilatory Support and the Management of continuous ventilatory support ACHI codes for guidance.
+"validationRules": "",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "3",
+                "format": "N[NN]",
+                "Unit of measure": Days (Integer value, with partial days rounded up.)
+"dataDomain": Value Description
+1-400 Valid days
+999 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_INC.csv",
+                "columnName": "VentDays",
+                "correspondence": "Single",
+                "references": "Australian Coding Standards (ACS) – ICD-10-AM/ACHI/ACS 9th Edition. p. 132.",
+                "relatedMetadata": "METeOR ID:  479010 "
+        },
+        {
+                "id": 701,
+                "title": "7.01 AIS Injury Codes",
+                "definition": "The assigned Abbreviated Injury Scale anatomical scoring codes for each injury sustained by the patient.",
+                "justification": "The main purpose is to calculate the overall injury severity of the patient which can be used for TRISS and outcome analysis.",
+                "obligation": "Mandatory",
+                "guideForUse":Abbreviated Injury Scale codes AIS 2005 Update 2008.
+If earlier AIS versions are used, these codes will need to be mapped to the comparable 2008 AIS estimates. 
+If AIS coding is not used, it will be necessary to map from International Classification of Diseases (ICD) injury codes to obtain comparable AIS estimates.
+"validationRules": "Cannot be blank.",
+                "relatedDataField": "s 3.03 Dominant Injury Type",
+                7.04 Injury Severity Score
+7.05 New Injury Severity Score
+"dataType": "Text",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "8",
+                "format": "NNNNNN.N",
+                "dataDomain":  AIS 2005 Update 2008 codes
+"columnLocation": "ATR1_site_time-period_INC.csv",
+                "columnName": "AISCode",
+                "correspondence": "Multiple",
+                "references": "Gennarelli TA, Wodzin E. , (Eds) The Abbreviated Injury Scale 2005 - Update 2008. Barrington, IL: Association for the Advancement of Automotive Medicine; 2008",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring (VSTORM) Data "
+        },
+        {
+Dictionary V. 4.0, Item 5.2
+
+"title": "7.02 Date & Time of Discharge from Definitive Care",
+                "definition": "The date and time patient was discharged from the definitive care hospital, or (if dying in hospital) the time of death.",
+                "justification": "To calculate length of stay at the definitive care hospital.",
+                "obligation": "Mandatory",
+                "guideForUse":Midnight should be entered as 00: 01 of the following date (00: 00 and 24: 00 are not accepted). Example, midnight 25th November 2011 should be reported as 25112011T0001.
+Where the date and time is unknown, enter as:
+• 01011900T0000
+Where date in known but time is unknown, enter actual date:
+• DDMMYYYYT0000
+Where the time is known but date is unknown, enter actual time as:
+• 01011900Thhmm
+It is the date of separation from the definitive care hospital.
+If not collected, can be concatenated if the following data is collected at the definitive care hospital:
+<br>Episode of admitted patient care - separation date (METeOR ID: 270025)
+<br>Episode of admitted patient care - separation time (METeOR ID: 270026)
+"validationRules": "Must be greater than or equal to:",
+<br>5.01 Date & Time of Arrival at Definitive Care Hospital; and
+<br>5.18 ED Discharge Date & Time
+"relatedDataField": "7.06 Length of Stay",
+                "dataType": "Date/Time",
+                "representationalClass": "Date/Time",
+                "fieldSizeMaximum": "13",
+                "format": "DDMMYYYYThhmm",
+                "dataDomain": "Valid Date and Time",
+                "columnLocation": "ATR1_site_time-period_INC.csv",
+                "columnName": "DischargeDateTime",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 270025 "
+        },
+        {
+METeOR ID: 270026
+"title": "7.03 Discharge Destination from Acute Care",
+                "definition": "The location to which the patient was discharged from acute care in the definitive care hospital.",
+                "justification": "To determine the outcome status of patients.",
+                "obligation": "Mandatory",
+                "guideForUse":If the patient is discharged back to the usual or original place of residence such as a nursing home, aged care facility or special accommodation, code 1
+– Home.
+"validationRules": "",
+                "relatedDataField": "None ",
+                "dataType": "Number ",
+                "representationalClass": "Code ",
+                "fieldSizeMaximum": "2 ",
+                "format": "N[N] ",
+                "dataDomain":  Code Description
+1 Home
+2 Rehabilitation
+3 Residential aged care service or nursing home not the usual place of residence
+ 4 Special accommodation (includes prisons, hostels and group homes providing primarily welfare services) that is not the usual place of residence
+5 Hospital for convalescence
+6 Left against medical advice/discharge at own risk
+7 Death
+8 Other
+9 Acute hospital for further definitive care
+99 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_INC.csv",
+                "columnName": "DischargeDest",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 270094 "
+        },
+        {
+                "id": 704,
+                "title": "7.04 Injury Severity Score",
+                "definition": "The calculated Injury Severity Score based on the entered Abbreviated Injury Scale codes at discharge. ISS is an anatomical scoring system that provides an overall score for patients with multiple injuries.",
+                "justification": "To determine severity of injury for multiple trauma patients. Used to characterise patients and hospital outcomes based upon the presence, severity and type of injury.",
+                "obligation": "Mandatory",
+                "guideForUse":A non-zero integer number calculated based on AIS codes. If AIS codes are available, this should be derived as a calculated field.
+If an injury is assigned an AIS severity of 6 (unsurvivable injury), the ISS score is automatically assigned 75.
+
+"validationRules": "Permissible values 1 – 75.  Cannot be blank.",
+                "relatedDataField": "7.01 AIS Injury Codes",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "2",
+                "format": "N[N]",
+                "dataDomain":  Code Description
+1 - 75 ISS codes
+99 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_INC.csv",
+                "columnName": "ISS",
+                "correspondence": "Single",
+                "references": "Baker SP, O’Neill B, Haddon W, Jr., Long WB. The injury severity score: a method for describing patients with multiple injuries and evaluating emergency care. J Trauma 1974;14:187-96",
+                "relatedMetadata": "Victorian State Trauma Registry Outcomes Monitoring (VSTORM) Data Dictionary V. 4.0, Item 5.5 "
+        },
+        {
+                "id": 705,
+                "title": "7.05 New Injury Severity Score",
+                "definition": "The calculated New Injury Severity Score based on the entered Abbreviated Injury Scale codes at discharge.",
+                "justification": "To determine severity of injury for multiple trauma patients. Used to characterise patients and hospital outcomes based upon the presence, severity and type of injury.",
+
+Obligation
+Optional
+"guideForUse":A non-zero integer number calculated based on AIS codes. If AIS codes are available, this should be derived as a calculated field.
+If an injury is assigned an AIS severity of 6 (unsurvivable injury), the NISS score is automatically assigned 75.
+"validationRules": "Permissible values 1 - 75",
+                "relatedDataField": "7.01 AIS Injury Codes",
+                "dataType": "Number",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "2",
+                "format": "N[N]",
+                "dataDomain":  Code Description
+1 - 75 NISS codes
+99 Not stated/inadequately described
+"columnLocation": "ATR1_site_time-period_INC.csv",
+                "columnName": "NISS",
+                "correspondence": "Single",
+                "references": "Osler T, Baker SP, Long W: A modification of the injury severity score that both improves accuracy and simplifies scoring. J Trauma 1997;43:922–925.",
+Baker SP. Advances and adventures in injury prevention. J Trauma: Injury Infect Crit Care 42: 369-73, 1997.
+"relatedMetadata": ""
+        },
+        {
+                "id": 706,
+                "title": "7.06 Length of Stay",
+                "definition": "The total number of hospital days spent in the definitive care hospital from date of admission to date of discharge or death.",
+                "justification": "Length of stay can be associated with increased risk of complications and poorer outcomes.  Length of stay also reflects the use of hospital resources.",
+                "obligation": "Mandatory",
+                "guideForUse": "Calculated length of stay in the definitive care hospital, measured as a fractional component expressed as a decimal.<br>Round up the decimal component to two decimal points, for example, if death or discharge occurs within 14 minutes i.e. < 0.01 days.<br>Bed days or whole days are commonly used, as per METeOR ID 329889 – Episode of admitted patient care—length of stay (including leave days, but this gives rise to data inaccuracies.  n be calculated from:<br>5.01 Date & Time of Arrival at Definitive Care Hospital; and<br>7.02 Date & Time of Discharge from Definitive Care <br>If both data fields are available, this should be derived as a calculated field.",
+                "validationRules": "Must be completed if the following collected: <br>5.01 Date & Time of Arrival at Definitive Care Hospital; and <br>7.02 Date & Time of Discharge from Definitive Care",
+                "relatedDataField": "5.01 Date & Time of Arrival at Definitive Care Hospital<br>7.02 Date & Time of Discharge from Definitive Care",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "6",
+                "format": "[NN]N.NN",
+                "Unit of measure": "Days (with partial days expressed to two decimal points)",
+                "dataDomain": [
+                        {
+                                "Value": "0.00-400.00",
+                                "Description": "Valid days"
+                        },
+                        {
+                                "Value": "999.99",
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR1_site_time-period_INC.csv",
+                "columnName": "LOS",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID: 329889  "
+        },
+        {
+                "id": 707,
+                "title": "7.07 Length of ICU Stay",
+                "definition": "The total number of hospital days spent in the Intensive Care Unit (ICU) at the definitive care hospital.",
+                "justification": "An important measure of the patient care process.",
+                "obligation": "Mandatory",
+                "guideForUse": "Calculated length of stay in the intensive care unit at the definitive care hospital, measured as a (with fractional component expressed as a decimal), rather than bed days.<br>Round up the decimal component to two decimal points, for example, if death or discharge occurs within 14 minutes i.e. < 0.01 days.<br>The hours of length of stay in ICU calculated for Activity Based Funding purposes can be used as a guide.<br>If a patient was not admitted to ICU, code 0.",
+                "validationRules": "Must be less than or equal to: • 7.06  Length of Stay",
+                "relatedDataField": "None",
+                "dataType": "Number",
+                "representationalClass": "Total",
+                "fieldSizeMaximum": "6",
+                "format": "[NN]N.NN",
+                "Unit of measure": "Days (with partial days expressed to two decimal points)",
+                "dataDomain": [
+                        {
+                                "Value": "0.00-400.00",
+                                "Description": "Valid days"
+                        },
+                        {
+                                "Value": "999.99",
+                                "Description": "Not stated/inadequately described"
+                        }
+                ],
+                "columnLocation": "ATR1_site_time-period_INC.csv",
+                "columnName": "ICULOS",
+                "correspondence": "Single",
+                "references": "",
+                "relatedMetadata": "METeOR ID:  471553 "
+        },
+        {
+                "id": 708,
+                "title": "7.08 Severe Complications",
+                "definition": "Whether a condition arising following the injury event had a substantial effect on the management, progress or eventual outcome of the patient.<br>Complication refers to condition/s that develops after the injury, affecting the progress or outcome of the patient that requires management and/or treatment.",
+                "justification": "Significant complications are associated with poorer outcomes and may potentially lead to an increased length of hospital stay.",
+                "obligation": "Optional",
+                "guideForUse": "ICD-10 AM Australian Coding Standards diagnosis codes can be used to map to specified severe complications groups.",
+                "validationRules": "",
+                "relatedDataField": "None",
+                "dataType": "Text",
+                "representationalClass": "Code",
+                "fieldSizeMaximum": "6",
+                "format": "ANN{.N[N]}",
+                "dataDomain": "ICD-10-AM International Statistical Classification of Diseases and Related data field Health Problems, Australian Modification",
+                "columnLocation": " ATR1_site_time-period_INC.csv",
+                "columnName": "SevereComp",
+                "correspondence": "Multiple"
         }
-      ]
+]
